@@ -7,5 +7,5 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Production deployment step
-        run: echo "This is the production deployment workflow  🚀"
+      - name: Feature deployment step
+        run: echo "This is the feature/1 deployment workflow  🚀"
