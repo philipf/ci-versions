@@ -1,0 +1,11 @@
+name: Workflow
+
+on:
+  push
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Production deployment step
+        run: echo "This is the production deployment workflow  🚀"
