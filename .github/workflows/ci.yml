@@ -1,4 +1,4 @@
-name: Workflow
+name: Sample CI
 
 on:
   push:
@@ -15,7 +15,7 @@ on:
         options:
           - dev
           - test
-          - production
+          - prd
       tag_to_deploy:
         description: 'The tag version to deploy (e.g., v1.2.3)'
         required: true
@@ -24,7 +24,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: prd
+    environment: ${ github.event.inputs.target_environment }
     steps:
       - name: Production deployment step
-        run: echo "This is the production deployment workflow  🚀"
+        run: echo "This is the ${ github.event.inputs.target_environment } deployment workflow  🚀"
