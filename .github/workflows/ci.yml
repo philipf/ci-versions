@@ -1,8 +1,26 @@
 name: Workflow
 
 on:
-  push
-  
+  push:
+    tags:
+      - 'v*'
+      
+  workflow_dispatch:
+    inputs:
+      target_environment:
+        description: 'Target deployment environment'
+        required: true
+        type: choice
+        default: 'test'
+        options:
+          - dev
+          - test
+          - production
+      tag_to_deploy:
+        description: 'The tag version to deploy (e.g., v1.2.3)'
+        required: true
+        type: string 
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
